@@ -48,7 +48,7 @@ $(document).on("click", ".citybutton",function(event){
     
     // wind speed <p> tag 
     var wind = $("<p>");
-        wind.text("Wind Speed" + response.wind.speed);
+        wind.text("Wind Speed: " + response.wind.speed);
    
     // UV index <p> tag   
     var UV = $("<p>");
