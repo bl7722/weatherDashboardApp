@@ -60,7 +60,6 @@ $(document).on("click", ".citybutton",function(event){
             url: uvURL,
             method:"GET"
         }).then(function(response){
-            console.log(response)
             UV.text("UV Index: " + response[0].value);
         })
 
