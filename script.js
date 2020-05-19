@@ -40,7 +40,7 @@ $(document).on("click", ".citybutton",function(event){
    
     // temp <p> tag
     var temp = $("<p>");
-        temp.text(Math.round(((((response.main.temp)-273.15)*1.8)+32))+ " F");
+        temp.text("Temp: " + Math.round(((((response.main.temp)-273.15)*1.8)+32))+ " F");
    
     // humidity <p> tag 
     var humidity = $("<p>")
@@ -48,7 +48,7 @@ $(document).on("click", ".citybutton",function(event){
     
     // wind speed <p> tag 
     var wind = $("<p>");
-        wind.text(response.wind.speed);
+        wind.text("Wind Speed" + response.wind.speed);
    
     // UV index <p> tag   
     var UV = $("<p>");
@@ -97,7 +97,7 @@ $(document).on("click", ".citybutton",function(event){
         var dayOneCard= $("<div>").addClass("card mr-5 bg-primary text-white");
                 var dateOne= $("<p>").text(moment().add(1, 'days').format("MMM Do YYYY"));
                 // p temp
-                var  tempOne= $("<p>").text(Math.round(((((response.list[1].main.temp)-273.15)*1.8)+32))+ " F");
+                var  tempOne= $("<p>").text("Temp: " + Math.round(((((response.list[1].main.temp)-273.15)*1.8)+32))+ " F");
                 // p humidity
                 var humidOne= $("<p>").text("Humidity: " + response.list[1].main.humidity);
             // append date, temp, humidity 
@@ -114,7 +114,7 @@ $(document).on("click", ".citybutton",function(event){
         var dayTwoCard= $("<div>").addClass("card mr-5 bg-primary text-white");
               var dateTwo= $("<p>").text(moment().add(2, 'days').format("MMM Do YYYY"));
               // p temp
-              var  tempTwo= $("<p>").text(Math.round(((((response.list[2].main.temp)-273.15)*1.8)+32))+ " F");
+              var  tempTwo= $("<p>").text("Temp: " + Math.round(((((response.list[2].main.temp)-273.15)*1.8)+32))+ " F");
               // p humidity
               var humidTwo= $("<p>").text("Humidity: " + response.list[2].main.humidity);
           // append date, temp, humidity 
@@ -131,7 +131,7 @@ $(document).on("click", ".citybutton",function(event){
         var dayThreeCard= $("<div>").addClass("card mr-5 bg-primary text-white");
                 var dateThree= $("<p>").text(moment().add(3, 'days').format("MMM Do YYYY"));
                  // p temp
-                var  tempThree= $("<p>").text(Math.round(((((response.list[3].main.temp)-273.15)*1.8)+32))+ " F");
+                var  tempThree= $("<p>").text("Temp: " + Math.round(((((response.list[3].main.temp)-273.15)*1.8)+32))+ " F");
                 // p humidity
                 var humidThree= $("<p>").text("Humidity: " + response.list[3].main.humidity);
             // append date, temp, humidity
@@ -148,7 +148,7 @@ $(document).on("click", ".citybutton",function(event){
         var dayFourCard= $("<div>").addClass("card mr-5 bg-primary text-white");
                 var dateFour= $("<p>").text(moment().add(4, 'days').format("MMM Do YYYY"));
                  // p temp
-                var  tempFour= $("<p>").text(Math.round(((((response.list[4].main.temp)-273.15)*1.8)+32))+ " F");
+                var  tempFour= $("<p>").text("Temp: " + Math.round(((((response.list[4].main.temp)-273.15)*1.8)+32))+ " F");
                 // p humidity
                 var humidFour= $("<p>").text("Humidity: " + response.list[4].main.humidity);
             // append date, temp, humidity
@@ -165,7 +165,7 @@ $(document).on("click", ".citybutton",function(event){
         var dayFiveCard= $("<div>").addClass("card mr-5 bg-primary text-white");
                 var dateFive= $("<p>").text(moment().add(5, 'days').format("MMM Do YYYY"));
                  // p temp
-                var  tempFive= $("<p>").text(Math.round(((((response.list[5].main.temp)-273.15)*1.8)+32))+ " F");
+                var  tempFive= $("<p>").text("Temp: " + Math.round(((((response.list[5].main.temp)-273.15)*1.8)+32))+ " F");
                 // p humidity
                 var humidFive= $("<p>").text("Humidity: " + response.list[5].main.humidity);
             // append date, temp, humidity
