@@ -17,6 +17,7 @@ searchBtn.on("click", function(event){
 
 $(document).on("click", ".citybutton",function(event){
     event.preventDefault();
+
     resultsArea.empty();
     var city = $(this).text();
     var date = moment().format("MMM Do YYYY");
@@ -63,27 +64,29 @@ $(document).on("click", ".citybutton",function(event){
             UV.text("UV Index: " + response[0].value);
         })
 
-    // appending to newCard
+    // append to newCard
     newCard.append(title);
     newCard.append(temp);
     newCard.append(humidity);
     newCard.append(wind);
     newCard.append(UV);
+    
+    //append newCard to newRow
     newRow.append(newCard);
+    // append newRow to resultsArea div
     resultsArea.append(newRow);
 });
 
-    // search api for 5 day forecast (fDF)
     $.ajax({
         url: queryurlWeek,
         method: "GET"
     }).then(function(response){     
 
-    //  new fDF second row 
+    //  new 5 day forecast second row 
     var newRow2 = $("<div>").addClass("row"); 
     var newRow3 = $("<div>").addClass("row");
 
-    // new fDF h4 
+    // new 5DF h4 
     var fiveday = $("<h4>");
         fiveday.text("5 Day Forecast");
         newRow2.append(fiveday);
@@ -105,6 +108,78 @@ $(document).on("click", ".citybutton",function(event){
         dayOne.append(dayOneCard);
         newRow3.append(dayOne);
 
-    
+    // day 2 div
+    var dayTwo = $("<div>");
+        //  new day 2 card 
+        var dayTwoCard= $("<div>").addClass("card mr-5 bg-primary text-white");
+              var dateTwo= $("<p>").text(moment().add(2, 'days').format("MMM Do YYYY"));
+              // p temp
+              var  tempTwo= $("<p>").text(Math.round(((((response.list[2].main.temp)-273.15)*1.8)+32))+ " F");
+              // p humidity
+              var humidTwo= $("<p>").text("Humidity: " + response.list[2].main.humidity);
+          // append date, temp, humidity 
+          dayTwoCard.append(dateTwo);
+          dayTwoCard.append(tempTwo);
+          dayTwoCard.append(humidTwo);
+
+        dayTwo.append(dayTwoCard);
+        newRow3.append(dayTwo);
+
+    // day 3 div
+    var dayThree = $("<div>");
+        //  new day 3 card 
+        var dayThreeCard= $("<div>").addClass("card mr-5 bg-primary text-white");
+                var dateThree= $("<p>").text(moment().add(3, 'days').format("MMM Do YYYY"));
+                 // p temp
+                var  tempThree= $("<p>").text(Math.round(((((response.list[3].main.temp)-273.15)*1.8)+32))+ " F");
+                // p humidity
+                var humidThree= $("<p>").text("Humidity: " + response.list[3].main.humidity);
+            // append date, temp, humidity
+            dayThreeCard.append(dateThree);
+            dayThreeCard.append(tempThree);
+            dayThreeCard.append(humidThree);
+
+        dayThree.append(dayThreeCard);
+        newRow3.append(dayThree);
+
+    // day 4 div
+    var dayFour = $("<div>");
+        //  new day 4 card 
+        var dayFourCard= $("<div>").addClass("card mr-5 bg-primary text-white");
+                var dateFour= $("<p>").text(moment().add(4, 'days').format("MMM Do YYYY"));
+                 // p temp
+                var  tempFour= $("<p>").text(Math.round(((((response.list[4].main.temp)-273.15)*1.8)+32))+ " F");
+                // p humidity
+                var humidFour= $("<p>").text("Humidity: " + response.list[4].main.humidity);
+            // append date, temp, humidity
+            dayFourCard.append(dateFour);
+            dayFourCard.append(tempFour);
+            dayFourCard.append(humidFour);
+
+        dayFour.append(dayFourCard);
+        newRow3.append(dayFour);
+
+    // day 5 div
+    var dayFive = $("<div>");
+        //  new day 5 card 
+        var dayFiveCard= $("<div>").addClass("card mr-5 bg-primary text-white");
+                var dateFive= $("<p>").text(moment().add(5, 'days').format("MMM Do YYYY"));
+                 // p temp
+                var  tempFive= $("<p>").text(Math.round(((((response.list[5].main.temp)-273.15)*1.8)+32))+ " F");
+                // p humidity
+                var humidFive= $("<p>").text("Humidity: " + response.list[5].main.humidity);
+            // append date, temp, humidity
+            dayFiveCard.append(dateFive);
+            dayFiveCard.append(tempFive);
+            dayFiveCard.append(humidFive); 
+
+        dayFive.append(dayFiveCard); 
+        newRow3.append(dayFive);
+
+    // append newRow2 to resultsArea div 
+    resultsArea.append(newRow2);
+    // append newRow3 to resultsArea div 
+    resultsArea.append(newRow3);
+    });
     
 });
